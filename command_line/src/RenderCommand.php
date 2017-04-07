@@ -12,6 +12,15 @@ use Symfony\Component\Console\Input\InputArgument;
 
 class RenderTasks extends Command
 {
+    private $database = null;
+
+    public function __construct(DatabaseAdapter $database)
+    {
+        $this->database = $database;
+
+        parent::__construct();
+    }
+
     public function configure()
     {
         $this->setName('render')
@@ -21,9 +30,16 @@ class RenderTasks extends Command
 
     public function execute(InputInterface $input, OutputInterface $output)
     {
-
+        $this->showTasks($output);
     }
 
 
 
-} 
+
+    private function showTasks($output)
+    {
+
+    }
+
+
+}
